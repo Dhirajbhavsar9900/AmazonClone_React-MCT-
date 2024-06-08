@@ -5,6 +5,8 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
+import Image from './../../assets/images/amazon-logo-6201.png'
+import { DesignServices } from '@mui/icons-material';
 
 const Header = () => {
     const menuItems = [
@@ -23,8 +25,101 @@ const Header = () => {
         { id: 13, text: 'Books' },
         { id: 14, text: 'Car & Motorbikes' },
         { id: 15, text: 'Gift' },
-        { id: 18, text: 'Sports fitness And OutDoors' },
+        { id: 18, text: 'Sports fitness And OutDoors' }
     ];
+
+    const trending =[
+        {
+            text: 'Best Sellers',
+        },
+        {
+            text: 'New Realease',
+        },
+        {
+            text: 'Movers and Shakers',
+        },
+    ]
+    
+
+    const DigitalContent =[
+        {
+            text: 'Amazon MiniTv_free Entertainment',
+        },
+        {
+            text: 'Echo & Alexa',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },        
+    ]
+
+    const ShopCat =[
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+
+    ]
+
+    const ProgramAndFea = [
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+
+    ]
+
+    const HelpsSetting = [
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+        {
+            text: 'Fire Tv',
+        },
+       
+    ]
+
+
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -114,12 +209,52 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className={`menu-slide-in  ${isMenuOpen ? 'open' : ''}`}>
-                    {menuItems.map((item) => (
-                        <div key={item.id} className="px-4 py-2 border-t border-gray-700">
-                            <span className="text-sm text-white">{item.text}</span>
+                <div className={`menu-slide-in overflow-y-scroll   ${isMenuOpen ? 'open' : ''}`}>
+                    <div className='bg-white'>
+                        <div className="px-4 py-2 mx-3 mt-10 flex justify-between items-center ">
+                            <span className="text-x  text-black font-semibold">Hello, sign in</span>
+                            <img className='w-[40px] rounded-full h-[40px] cursor-pointer ' src={Image} alt="" />
+                        </div>
+                     
+                    </div>
+                    <div>
+                    <div className="px-4 py-2 mt-3 flex font-sans ">
+                        <h1 className="text-lg text-white font-bold ">Trending</h1>
+                    </div>
+                    {trending.map((item) => (
+                        <div key={item.id} className="px-4 py-2">
+                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
                         </div>
                     ))}
+
+                    <div className="px-4 py-2 mt-3 flex font-sans ">
+                        <h1 className="text-lg text-white font-bold ">Digital Content and Devices</h1>
+                    </div>
+                    {DigitalContent.map((item) => (
+                        <div key={item.id} className="px-4 py-2">
+                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
+                        </div>
+                    ))}
+
+                    <div className="px-4 py-2 mt-3 flex font-sans ">
+                        <h1 className="text-lg text-white font-bold ">Shop by Category</h1>
+                    </div>
+                    {ShopCat.map((item) => (
+                        <div key={item.id} className="px-4 py-2">
+                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
+                        </div>
+                    ))}
+
+                    <div className="px-4 py-2 mt-3 flex font-sans ">
+                        <h1 className="text-lg text-white font-bold ">Helps & Settings</h1>
+                    </div>
+                        {HelpsSetting.map((item) => (
+                            <div key={item.id} className="px-4 py-2">
+                                <span className="text-sm text-white cursor-pointer">{item.text}</span>
+                            </div>
+                        ))}
+                    </div>
+                    
                 </div>
             </section>
         </>
