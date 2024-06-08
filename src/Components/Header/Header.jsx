@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from './../../assets/images/amazon-logo-6201.png';
-
+import { useMediaQuery } from '@mui/material';
 const Header = () => {
     const menuItems = [
         { id: 1, text: 'Amazon MinTV' },
@@ -118,7 +118,7 @@ const Header = () => {
        
     ]
 
-
+    const isDesktop = useMediaQuery('(min-width:600px)');
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -129,7 +129,6 @@ const Header = () => {
 
     return (
         <div className={`header-wrapper ${isMenuOpen ? 'overlay-open' : ''}`}>
-            {/* Your navbar */}
             <nav className="bg-[#131921] flex flex-wrap items-center p-2">
                 <div className="flex items-center flex-grow mx-2">
                     <button onClick={toggleMenu} className="text-white focus:outline-none p-2 m-1 menu-button md:hidden">
@@ -200,24 +199,26 @@ const Header = () => {
             </nav>
 
             <section className="bg-[#232F3E]">
-                <div className="flex items-center text-white p-2">
-                    <button onClick={toggleMenu} className="text-white focus:outline-none p-2 m-1 menu-button">
-                        {isMenuOpen ? <CloseIcon /> : (
-                            <>
-                                <span className="block h-0.5 w-5 bg-white mb-1"></span>
-                                <span className="block h-0.5 w-5 bg-white mb-1"></span>
-                                <span className="block h-0.5 w-5 bg-white"></span>
-                            </>
-                        )}
-                    </button>
-                    <div className="hidden md:flex">
-                    {menuItems.map((item) => (
-                        <div key={item.id} className="px-4 py-2">
-                            <span className="text-sm text-white">{item.text}</span>
+                {isDesktop && (
+                    <div className="flex items-center text-white p-2">
+                        <button onClick={toggleMenu} className="text-white focus:outline-none p-2 m-1 menu-button">
+                            {isMenuOpen ? <CloseIcon /> : (
+                                <>
+                                    <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                                    <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                                    <span className="block h-0.5 w-5 bg-white"></span>
+                                </>
+                            )}
+                        </button>
+                        <div className="hidden md:flex">
+                            {menuItems.map((item) => (
+                                <div key={item.id} className="px-4 py-2">
+                                    <span className="text-sm text-white">{item.text}</span>
+                                </div>
+                            ))}
                         </div>
-                    ))}
                     </div>
-                </div>
+                )}
 
                 <div className={`menu-slide-in overflow-y-scroll   ${isMenuOpen ? 'open' : ''}`}>
                     <div className='bg-white'>
