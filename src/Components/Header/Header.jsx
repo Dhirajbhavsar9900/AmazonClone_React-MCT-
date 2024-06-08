@@ -5,8 +5,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
-import Image from './../../assets/images/amazon-logo-6201.png'
-import { DesignServices } from '@mui/icons-material';
+import Image from './../../assets/images/amazon-logo-6201.png';
 
 const Header = () => {
     const menuItems = [
@@ -129,9 +128,19 @@ const Header = () => {
     };
 
     return (
-        <>
+        <div className={`header-wrapper ${isMenuOpen ? 'overlay-open' : ''}`}>
+            {/* Your navbar */}
             <nav className="bg-[#131921] flex flex-wrap items-center p-2">
                 <div className="flex items-center flex-grow mx-2">
+                    <button onClick={toggleMenu} className="text-white focus:outline-none p-2 m-1 menu-button md:hidden">
+                        {isMenuOpen ? <CloseIcon /> : (
+                            <>
+                                <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                                <span className="block h-0.5 w-5 bg-white mb-1"></span>
+                                <span className="block h-0.5 w-5 bg-white"></span>
+                            </>
+                        )}
+                    </button>
                     <div className="flex items-center cursor-pointer mx-2">
                         <img className="w-[80px] sm:w-[100px] md:w-[110px]" src={Logo} alt="Amazon Logo" />
                         <span className="text-white text-center hidden md:inline">.in</span>
@@ -187,6 +196,7 @@ const Header = () => {
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
                     </div>
                 </div>
+
             </nav>
 
             <section className="bg-[#232F3E]">
@@ -244,7 +254,14 @@ const Header = () => {
                             <span className="text-sm text-white cursor-pointer">{item.text}</span>
                         </div>
                     ))}
-
+                    <div className="px-4 py-2 mt-3 flex font-sans ">
+                        <h1 className="text-lg text-white font-bold ">Shop by Category</h1>
+                    </div>
+                    {ProgramAndFea.map((item) => (
+                        <div key={item.id} className="px-4 py-2">
+                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
+                        </div>
+                    ))}
                     <div className="px-4 py-2 mt-3 flex font-sans ">
                         <h1 className="text-lg text-white font-bold ">Helps & Settings</h1>
                     </div>
@@ -257,7 +274,8 @@ const Header = () => {
                     
                 </div>
             </section>
-        </>
+
+        </div>
     );
 };
 
