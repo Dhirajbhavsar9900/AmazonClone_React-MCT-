@@ -7,6 +7,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from './../../assets/images/amazon-logo-6201.png';
 import { useMediaQuery } from '@mui/material';
+import PropTypes from 'prop-types';
+
 
 const menuItems = [
     'Amazon MinTV', 'Sell', 'Best Sellers', 'Mobiles', 'Todays Deal', 'Fashion',
@@ -59,7 +61,7 @@ const Header = () => {
                 </div>
 
                 <div className="flex-grow mx-2 py-3 px-1 flex justify-center lg:justify-start">
-                    <form action="search" className="flex justify-center items-center w-full">
+                    <form action="search" className="flex items-center w-full">
                         <div className="bg-[#D4D4D4] cursor-pointer hidden md:block">
                             <select className="bg-[#D4D4D4] rounded-l-sm p-2 w-12 sm:w-14 md:w-16 outline-none">
                                 <option value="">All</option>
@@ -74,6 +76,8 @@ const Header = () => {
                         </div>
                     </form>
                 </div>
+
+               
 
                 <div className="hidden md:flex items-center mx-2">
                     <div className="flex flex-col cursor-pointer mx-2">
@@ -154,5 +158,10 @@ const MenuSection = ({ title, items }) => (
         ))}
     </div>
 );
+
+MenuSection.propTypes = {
+    title: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default Header;
