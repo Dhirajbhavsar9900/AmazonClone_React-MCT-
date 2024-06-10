@@ -7,131 +7,36 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import Image from './../../assets/images/amazon-logo-6201.png';
 import { useMediaQuery } from '@mui/material';
+
+const menuItems = [
+    'Amazon MinTV', 'Sell', 'Best Sellers', 'Mobiles', 'Todays Deal', 'Fashion',
+    'Electronics', 'Prime', 'Home kitchen', 'Customer Service', 'Amazon Pay',
+    'Computers', 'Books', 'Car & Motorbikes', 'Gift', 'Sports fitness And OutDoors'
+];
+
+const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
+const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
+const shopCategories = ['Mobiles', 'Laptops', 'Home Appliances'];
+const programsAndFeatures = ['Amazon Pay', 'Amazon Prime', 'Amazon Fresh'];
+const helpAndSettings = ['Your Account', 'Help', 'Sign Out'];
+
 const Header = () => {
-    const menuItems = [
-        { id: 1, text: 'Amazon MinTV' },
-        { id: 2, text: 'Sell' },
-        { id: 3, text: 'Best Sellers' },
-        { id: 4, text: 'Mobiles' },
-        { id: 5, text: 'Todays Deal' },
-        { id: 6, text: 'Fashion' },
-        { id: 7, text: 'Electronics' },
-        { id: 8, text: 'Prime' },
-        { id: 9, text: 'Home kitchen' },
-        { id: 10, text: 'Customer Service' },
-        { id: 11, text: 'Amazon Pay' },
-        { id: 12, text: 'Computers' },
-        { id: 13, text: 'Books' },
-        { id: 14, text: 'Car & Motorbikes' },
-        { id: 15, text: 'Gift' },
-        { id: 18, text: 'Sports fitness And OutDoors' }
-    ];
-
-    const trending =[
-        {
-            text: 'Best Sellers',
-        },
-        {
-            text: 'New Realease',
-        },
-        {
-            text: 'Movers and Shakers',
-        },
-    ]
-    
-
-    const DigitalContent =[
-        {
-            text: 'Amazon MiniTv_free Entertainment',
-        },
-        {
-            text: 'Echo & Alexa',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },        
-    ]
-
-    const ShopCat =[
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-
-    ]
-
-    const ProgramAndFea = [
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-
-    ]
-
-    const HelpsSetting = [
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-        {
-            text: 'Fire Tv',
-        },
-       
-    ]
-
     const isDesktop = useMediaQuery('(min-width:600px)');
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-        console.log(isMenuOpen ? 'Menu is open' : 'Menu is closed');
     };
 
     return (
         <div className={`header-wrapper ${isMenuOpen ? 'overlay-open' : ''}`}>
-            <nav className="bg-[#131921] flex flex-wrap items-center p-2">
+            <nav className="bg-[#131921] flex flex-wrap items-center p-2 ">
                 <div className="flex items-center flex-grow mx-2">
-                    <button onClick={toggleMenu} className="text-white focus:outline-none p-2 m-1 menu-button md:hidden">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-white focus:outline-none p-2 m-1 menu-button md:hidden"
+                        aria-label="Toggle menu"
+                    >
                         {isMenuOpen ? <CloseIcon /> : (
                             <>
                                 <span className="block h-0.5 w-5 bg-white mb-1"></span>
@@ -158,9 +63,9 @@ const Header = () => {
                         <div className="bg-[#D4D4D4] cursor-pointer hidden md:block">
                             <select className="bg-[#D4D4D4] rounded-l-sm p-2 w-12 sm:w-14 md:w-16 outline-none">
                                 <option value="">All</option>
-                                <option value="">Mobiles</option>
-                                <option value="">Laptops</option>
-                                <option value="">Home Appliances</option>
+                                <option value="Mobiles">Mobiles</option>
+                                <option value="Laptops">Laptops</option>
+                                <option value="Home Appliances">Home Appliances</option>
                             </select>
                         </div>
                         <input className="p-2 w-full sm:w-[500px] md:w-[700px] lg:w-[900px] outline-none" type="search" placeholder="Search Amazon.in" />
@@ -195,7 +100,6 @@ const Header = () => {
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
                     </div>
                 </div>
-
             </nav>
 
             <section className="bg-[#232F3E]">
@@ -211,73 +115,44 @@ const Header = () => {
                             )}
                         </button>
                         <div className="hidden md:flex">
-                            {menuItems.map((item) => (
-                                <div key={item.id} className="px-4 py-2">
-                                    <span className="text-sm text-white">{item.text}</span>
+                            {menuItems.map((text, index) => (
+                                <div key={index} className="px-4 py-2">
+                                    <span className="text-sm text-white">{text}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 )}
 
-                <div className={`menu-slide-in overflow-y-scroll   ${isMenuOpen ? 'open' : ''}`}>
+                <div className={`menu-slide-in overflow-y-scroll ${isMenuOpen ? 'open' : ''}`}>
                     <div className='bg-white'>
-                        <div className="px-4 py-2 mx-3 mt-10 flex justify-between items-center ">
-                            <span className="text-x  text-black font-semibold">Hello, sign in</span>
-                            <img className='w-[40px] rounded-full h-[40px] cursor-pointer ' src={Image} alt="" />
+                        <div className="px-4 py-2 mx-3 mt-10 flex justify-between items-center">
+                            <span className="text-x text-black font-semibold">Hello, sign in</span>
+                            <img className='w-[40px] rounded-full h-[40px] cursor-pointer' src={Image} alt="" />
                         </div>
-                     
                     </div>
-                    <div>
-                    <div className="px-4 py-2 mt-3 flex font-sans ">
-                        <h1 className="text-lg text-white font-bold ">Trending</h1>
-                    </div>
-                    {trending.map((item) => (
-                        <div key={item.id} className="px-4 py-2">
-                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
-                        </div>
-                    ))}
-
-                    <div className="px-4 py-2 mt-3 flex font-sans ">
-                        <h1 className="text-lg text-white font-bold ">Digital Content and Devices</h1>
-                    </div>
-                    {DigitalContent.map((item) => (
-                        <div key={item.id} className="px-4 py-2">
-                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
-                        </div>
-                    ))}
-
-                    <div className="px-4 py-2 mt-3 flex font-sans ">
-                        <h1 className="text-lg text-white font-bold ">Shop by Category</h1>
-                    </div>
-                    {ShopCat.map((item) => (
-                        <div key={item.id} className="px-4 py-2">
-                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
-                        </div>
-                    ))}
-                    <div className="px-4 py-2 mt-3 flex font-sans ">
-                        <h1 className="text-lg text-white font-bold ">Shop by Category</h1>
-                    </div>
-                    {ProgramAndFea.map((item) => (
-                        <div key={item.id} className="px-4 py-2">
-                            <span className="text-sm text-white cursor-pointer">{item.text}</span>
-                        </div>
-                    ))}
-                    <div className="px-4 py-2 mt-3 flex font-sans ">
-                        <h1 className="text-lg text-white font-bold ">Helps & Settings</h1>
-                    </div>
-                        {HelpsSetting.map((item) => (
-                            <div key={item.id} className="px-4 py-2">
-                                <span className="text-sm text-white cursor-pointer">{item.text}</span>
-                            </div>
-                        ))}
-                    </div>
-                    
+                    <MenuSection title="Trending" items={trending} />
+                    <MenuSection title="Digital Content and Devices" items={digitalContent} />
+                    <MenuSection title="Shop by Category" items={shopCategories} />
+                    <MenuSection title="Programs and Features" items={programsAndFeatures} />
+                    <MenuSection title="Helps & Settings" items={helpAndSettings} />
                 </div>
             </section>
-
         </div>
     );
 };
+
+const MenuSection = ({ title, items }) => (
+    <div>
+        <div className="px-4 py-2 mt-3 flex font-sans">
+            <h1 className="text-lg text-white font-bold">{title}</h1>
+        </div>
+        {items.map((text, index) => (
+            <div key={index} className="px-4 py-2">
+                <span className="text-sm text-white cursor-pointer">{text}</span>
+            </div>
+        ))}
+    </div>
+);
 
 export default Header;
