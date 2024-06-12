@@ -11,19 +11,20 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const menuItems = [
-    'Amazon MinTV', 'Sell', 'Best Sellers', 'Mobiles', 'Todays Deal', 'Fashion',
-    'Electronics', 'Prime', 'Home kitchen', 'Customer Service', 'Amazon Pay',
-    'Computers', 'Books', 'Car & Motorbikes', 'Gift', 'Sports fitness And OutDoors'
-];
-
-const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
-const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
-const shopCategories = ['Mobiles', 'Laptops', 'Home Appliances'];
-const programsAndFeatures = ['Amazon Pay', 'Amazon Prime', 'Amazon Fresh'];
-const helpAndSettings = ['Your Account', 'Help', 'Sign Out'];
 
 const Header = () => {
+    const menuItems = [
+        'Amazon MinTV', 'Sell', 'Best Sellers', 'Mobiles', 'Todays Deal', 'Fashion',
+        'Electronics', 'Prime', 'Home kitchen', 'Customer Service', 'Amazon Pay',
+        'Computers', 'Books', 'Car & Motorbikes', 'Gift', 'Sports fitness And OutDoors'
+    ];
+    
+    const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
+    const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
+    const shopCategories = ['Mobiles', 'Laptops', 'Home Appliances'];
+    const programsAndFeatures = ['Amazon Pay', 'Amazon Prime', 'Amazon Fresh'];
+    const helpAndSettings = ['Your Account', 'Help', 'Sign Out'];
+
     const isDesktop = useMediaQuery('(min-width:600px)');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 

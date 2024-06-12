@@ -1,34 +1,21 @@
-import { useState, useEffect } from 'react';
+import{ useState, useEffect } from 'react';
 import { fetchProducts } from './../../../api/api';
 
 const Cards = () => {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true); // Loading state
-    const [error, setError] = useState(null);     // Error state
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const data = await fetchProducts();
                 setProducts(data);
-                setLoading(false);
             } catch (error) {
                 console.error('Error fetching products:', error);
-                setError(error);
-                setLoading(false);
             }
         }
 
         fetchData();
     }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error fetching products. Please try again later.</div>;
-    }
 
     return (
         <section className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
