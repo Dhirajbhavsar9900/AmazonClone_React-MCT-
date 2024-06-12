@@ -6,7 +6,7 @@ import HeroSection from './Components/HeroSection.jsx/HeroSection'
 import Footer from './Components/Footer/Footer'
 import Cart from './Components/Cart/Cart'
 import {BrowserRouter , Routes, Route} from 'react-router-dom'
-import FilterProducts from './Components/FilterProducts/MainfilterProductpage'
+import MainfilterProductpage from "./Components/FilterProducts/MainfilterProductpage"
 function App() {
  
 
@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HeroSection/>} />
         <Route path="/cart" element={<Cart/>} />
-        <Route path="/filter" element={<FilterProducts/>} />
+        <Route path="/filter" element={<MainfilterProductpage/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
