@@ -11,7 +11,6 @@ import { NextArrow, PrevArrow } from './CustomArrows';
 
 const Banner = () => {
   const settings = {
-    
     infinite: true,
     speed: 500,
     slidesToShow: 1,

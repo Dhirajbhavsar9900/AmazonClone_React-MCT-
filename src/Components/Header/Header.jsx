@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Image from './../../assets/images/amazon-logo-6201.png';
 import { useMediaQuery } from '@mui/material';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 const menuItems = [
@@ -47,10 +48,10 @@ const Header = () => {
                             </>
                         )}
                     </button>
-                    <div className="flex items-center cursor-pointer mx-2">
+                    <Link to="/ " className="flex items-center cursor-pointer mx-2">
                         <img className="w-[80px] sm:w-[100px] md:w-[110px]" src={Logo} alt="Amazon Logo" />
                         <span className="text-white text-center hidden md:inline">.in</span>
-                    </div>
+                    </Link>
                     <div className="hidden md:flex flex-col justify-center items-center px-2 cursor-pointer">
                         <span className="text-gray-300 font-bold text-[10px] sm:text-[12px] md:text-[14px] ml-3">Delivery To Nashik</span>
                         <div className="flex items-center">
@@ -88,10 +89,10 @@ const Header = () => {
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px] md:text-[14px]">Return</span>
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">& Order</span>
                     </div>
-                    <div className="flex items-center cursor-pointer mx-2">
+                    <Link to="/cart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Cart</span>
-                    </div>
+                    </Link>
                 </div>
 
                 <div className="md:hidden flex items-center">
@@ -99,10 +100,10 @@ const Header = () => {
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px]">Hello, sign in</span>
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Account and Lists</span>
                     </div>
-                    <div className="flex items-center cursor-pointer mx-2">
+                    <Link to="/cart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
-                    </div>
+                    </Link>
                 </div>
             </nav>
 
