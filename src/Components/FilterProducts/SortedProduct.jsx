@@ -100,7 +100,6 @@ if (sortBy === "low_to_high") {
             <option value="featured">Featured</option>
             <option value="low_to_high">Price: Low to High</option>
             <option value="high_to_low">Price: High to Low</option>
-            <option value="avg_customer_review">Avg. Customer Review</option>
           </select>
         </div>
       </section>
