@@ -1,27 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { fetchProducts } from "./../../api/api";
-
-// Import loader animation component
 import Loader from "./../Loader";
+import UserContext from "./../../Context/UserContext"; // Adjust the path according to your folder structure
 
 const SortedProduct = () => {
+  const { addToCart } = useContext(UserContext);
   const [products, setProducts] = useState([]);
   const [sortBy, setSortBy] = useState("featured");
   const [filterBy, setFilterBy] = useState("all");
-  const [loading, setLoading] = useState(true); // State to manage loading
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await fetchProducts();
         setProducts(data);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
-        setLoading(false); // Set loading to false on error as well
+        setLoading(false);
       }
     }
-
     fetchData();
   }, []);
 
@@ -34,7 +33,6 @@ const SortedProduct = () => {
     }
   };
 
-  // Filter products based on selected filter criteria
   const filteredProducts =
     filterBy === "all"
       ? [...products]
@@ -44,7 +42,6 @@ const SortedProduct = () => {
             : product.category.includes(filterBy)
         );
 
-  // Sort filtered products based on selected sorting criteria
   const sortedProducts = [...filteredProducts];
   if (sortBy === "low_to_high") {
     sortedProducts.sort((a, b) => a.price - b.price);
@@ -54,10 +51,6 @@ const SortedProduct = () => {
     sortedProducts.sort((a, b) => {
       return a.featured === b.featured ? 0 : a.featured ? -1 : 1;
     });
-  } else if (sortBy === "avg_customer_review") {
-    sortedProducts.sort((a, b) => {
-      return b.avgCustomerReview - a.avgCustomerReview;
-    });
   }
 
   return (
@@ -66,7 +59,6 @@ const SortedProduct = () => {
         <p className="text-sm font-medium">
           Your Products ({sortedProducts.length})
         </p>
-
         <div className="flex items-center">
           <label htmlFor="filterBy" className="text-sm font-medium mr-2">
             Types Of Product
@@ -85,7 +77,6 @@ const SortedProduct = () => {
             <option value="jewelery">jewelery</option>
           </select>
         </div>
-
         <div className="flex items-center">
           <label htmlFor="sortBy" className="text-sm font-medium mr-2">
             Sort By:
@@ -103,8 +94,6 @@ const SortedProduct = () => {
           </select>
         </div>
       </section>
-
-      {/* Conditionally render loader based on loading state */}
       {loading ? (
         <Loader />
       ) : (
@@ -132,7 +121,10 @@ const SortedProduct = () => {
                 <p className="text-sm text-gray-600 truncate mb-4">
                   {product.description}
                 </p>
-                <button className="bg-yellow-400 hover:bg-yellow-500 shadow-2xl text-black font-semibold px-4 py-2 text-sm rounded-lg w-full mt-auto">
+                <button
+                  onClick={() => addToCart(product)}
+                  className="bg-yellow-400 hover:bg-yellow-500 shadow-2xl text-black font-semibold px-4 py-2 text-sm rounded-lg w-full mt-auto"
+                >
                   Add To Cart
                 </button>
               </div>

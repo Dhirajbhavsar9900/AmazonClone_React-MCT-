@@ -10,14 +10,10 @@ import { useMediaQuery } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-
+import Headerbottom from './Headerbottom';
 
 const Header = () => {
-    const menuItems = [
-        'Amazon MinTV', 'Sell', 'Best Sellers', 'Mobiles', 'Todays Deal', 'Fashion',
-        'Electronics', 'Prime', 'Home kitchen', 'Customer Service', 'Amazon Pay',
-        'Computers', 'Books', 'Car & Motorbikes', 'Gift', 'Sports fitness And OutDoors'
-    ];
+    
     
     const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
     const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
@@ -120,13 +116,8 @@ const Header = () => {
                                 </>
                             )}
                         </button>
-                        <div className="hidden md:flex">
-                            {menuItems.map((text, index) => (
-                                <div key={index} className="px-4 py-2">
-                                    <span className="text-sm text-white">{text}</span>
-                                </div>
-                            ))}
-                        </div>
+                        {/* compoenent */}
+                        <Headerbottom />
                     </div>
                 )}
 

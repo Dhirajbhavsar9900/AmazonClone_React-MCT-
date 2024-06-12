@@ -4,7 +4,6 @@ import SortedProduct from "./SortedProduct";
 const FilterProducts =() =>{
     return(
         <>
-       
         <section name="FilterProducts">
             <SortedProduct/>
         </section>

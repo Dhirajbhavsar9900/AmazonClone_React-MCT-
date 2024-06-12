@@ -1,8 +1,11 @@
-import{ useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { fetchProducts } from './../../../api/api';
+import UserContext from '../../../Context/UserContext';
 
 const Cards = () => {
     const [products, setProducts] = useState([]);
+
+    const { addToCart } = useContext(UserContext);
 
     useEffect(() => {
         async function fetchData() {
@@ -29,7 +32,7 @@ const Cards = () => {
                         <h2 className='text-lg text-blue-900 font-semibold mb-1'>{product.title}</h2>
                         <p className='text-gray-800 font-semibold text-xl mb-2'>{`$${product.price}`}</p>
                         <p className='text-sm text-gray-600 truncate mb-4'>{product.description}</p>
-                        <button className='bg-yellow-400 hover:bg-yellow-500 shadow-2xl text-black font-semibold px-4 py-2 text-sm rounded-lg w-full mt-auto'>Add To Cart</button>
+                        <button onClick={() => addToCart(product)} className='bg-yellow-400 hover:bg-yellow-500 shadow-2xl text-black font-semibold px-4 py-2 text-sm rounded-lg w-full mt-auto'>Add To Cart</button>
                     </div>
                 </div>
             ))}
