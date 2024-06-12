@@ -39,12 +39,26 @@ const SortedProduct = () => {
         );
 
   // Sort filtered products based on selected sorting criteria
-  const sortedProducts = [...filteredProducts];
-  if (sortBy === "low_to_high") {
-    sortedProducts.sort((a, b) => a.price - b.price);
-  } else if (sortBy === "high_to_low") {
-    sortedProducts.sort((a, b) => b.price - a.price);
-  }
+ // Sort filtered products based on selected sorting criteria
+const sortedProducts = [...filteredProducts];
+if (sortBy === "low_to_high") {
+  sortedProducts.sort((a, b) => a.price - b.price);
+} else if (sortBy === "high_to_low") {
+  sortedProducts.sort((a, b) => b.price - a.price);
+} else if (sortBy === "featured") {
+  // Sort by featured
+  sortedProducts.sort((a, b) => {
+    // Assuming featured products have a boolean property called 'featured'
+    return a.featured === b.featured ? 0 : a.featured ? -1 : 1;
+  });
+} else if (sortBy === "avg_customer_review") {
+  // Sort by average customer review
+  sortedProducts.sort((a, b) => {
+    // Assuming products have a numerical property called 'avgCustomerReview'
+    return b.avgCustomerReview - a.avgCustomerReview;
+  });
+}
+
 
   return (
     <>
