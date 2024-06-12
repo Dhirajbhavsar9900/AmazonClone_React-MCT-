@@ -1,6 +1,6 @@
 // import { useState } from 'react';
 import offers from "../../../constant/Offers";
-
+import { Link } from "react-router-dom";
 const BannerBottomPart = () => {
     
 
@@ -10,7 +10,7 @@ const BannerBottomPart = () => {
                 <div key={offer} className="mx-auto p-4 bg-white shadow-2xl cursor-pointer">
                     <h1 className="text-xl font-medium py-2">{offer.Head}</h1>
                     <img src={offer.Img} alt="" />
-                    <p className="navigateButtonLinks text-base py-2">Shop now</p>
+                    <Link to="/filter"><p className="navigateButtonLinks text-base py-2">Shop now</p></Link>
                 </div>
             ))}
             <div className="bg-white p-4 h-max shadow-2xl">
