@@ -11,7 +11,6 @@ import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate
 import Headerbottom from './Headerbottom';
 
-
 const Header = () => {
     const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
     const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
@@ -27,14 +26,9 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    
     const handleLogout = () => {
         // Clear any user session data or tokens if necessary
         console.log('User logged out');
-        toast.success('You have been logged out successfully!', {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 2000, // Automatically close the toast after 2 seconds
-        });
         navigate('/login', { replace: true });  // Navigate to login page after logging out and replace current entry
     };
     return (
