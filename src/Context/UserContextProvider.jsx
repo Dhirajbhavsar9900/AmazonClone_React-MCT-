@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'; // prop-types library import karo
+import PropTypes from 'prop-types';
 import UserContext from './UserContext';
 
 const UserContextProvider = ({ children }) => {
@@ -10,15 +10,18 @@ const UserContextProvider = ({ children }) => {
     setCart((prevCart) => [...prevCart, item]);
   };
 
+  const cartItemCount = cart.length;
+  console.log(cartItemCount);
+
   return (
-    <UserContext.Provider value={{ user, setUser, cart, addToCart }}>
+    <UserContext.Provider value={{ user, setUser, cart, addToCart, cartItemCount }}>
       {children}
     </UserContext.Provider>
   );
 };
 
 UserContextProvider.propTypes = {
-  children: PropTypes.node.isRequired, // children prop ko validate karo
+  children: PropTypes.node.isRequired,
 };
 
 export default UserContextProvider;

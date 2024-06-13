@@ -57,26 +57,25 @@ const SortedProduct = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    toast.success(`${product.title} added to cart!`, {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      style: {
-        background: "#000",
-        color: "#fff",
-        borderRadius: "8px",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-        padding: "16px"
-      }
-    });
+    toast.success(`${product.title} added to cart!`);
   };
 
   return (
     <>
-      <ToastContainer />
+        <ToastContainer 
+                position="bottom-right" 
+                autoClose={3000} 
+                hideProgressBar={false} 
+                closeOnClick 
+                pauseOnHover 
+                draggable 
+                toastStyle={{
+                    backgroundColor: "#333",
+                    color: "#fff",
+                    borderRadius: "8px",
+                    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+                }}
+            />
       <section className="flex items-center justify-between px-3 py-2 bg-white border-b border-gray-200 shadow-sm">
         <p className="text-sm font-medium">
           Your Products ({sortedProducts.length})

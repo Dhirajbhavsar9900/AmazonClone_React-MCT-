@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import amazonimg from "./../../assets/images/Amazon/Amzon.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from './../../../firebase/Config';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toastify
 
 function SignUp() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,22 +18,25 @@ function SignUp() {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
   const SignUpHandler = async () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log("User created:", user);
-    } 
-    catch (error) {
+      toast.success('Account created successfully!');
+      navigate("/login");
+    } catch (error) {
       setError(error.message);
+      toast.error("Invalid email or password.");
       console.error("Error signing up:", error.message);
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <ToastContainer /> {/* Add the ToastContainer here */}
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center mb-1">
           <img className="w-32 mb-1" src={amazonimg} alt="Amazon Logo" />

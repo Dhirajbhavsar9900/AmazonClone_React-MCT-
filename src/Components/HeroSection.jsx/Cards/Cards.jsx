@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Cards = () => {
     const [products, setProducts] = useState([]);
-
+    
     const { addToCart } = useContext(UserContext);
 
     useEffect(() => {
@@ -14,6 +14,7 @@ const Cards = () => {
             try {
                 const data = await fetchProducts();
                 setProducts(data);
+                
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
