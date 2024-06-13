@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { fetchProducts } from "./../../api/api";
-import Loader from "./../Loader";
-import UserContext from "./../../Context/UserContext"; // Adjust the path according to your folder structure
+import { fetchProducts } from "../../api/api";
+import Loader from "../Loader";
+import UserContext from "../../Context/UserContext"; // Adjust the path according to your folder structure
 
 const SortedProduct = () => {
   const { addToCart } = useContext(UserContext);

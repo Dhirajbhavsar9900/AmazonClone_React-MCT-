@@ -8,10 +8,10 @@ const Headerbottom = () => {
         <Link to="/" className="px-4 py-2 cursor-pointer">
           <span className="text-sm text-white">Home</span>
         </Link>
-        <Link to="/Mobile" className="px-4 py-2 cursor-pointer">
+        <Link to="" className="px-4 py-2 cursor-pointer">
           <span className="text-sm text-white">Mobile</span>
         </Link>
-        <Link to="/Electronics" className="px-4 py-2 cursor-pointer">
+        <Link to="" className="px-4 py-2 cursor-pointer">
           <span className="text-sm text-white">Electronics</span>
         </Link>
         <div className="px-4 py-2 cursor-pointer">

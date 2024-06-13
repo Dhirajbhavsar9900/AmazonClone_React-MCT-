@@ -5,7 +5,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CloseIcon from '@mui/icons-material/Close';
-import Image from './../../assets/images/amazon-logo-6201.png';
+import Image from './../../assets/images/Amazon/Amzon.png';
 import { useMediaQuery } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -76,28 +76,29 @@ const Header = () => {
                 </div>
 
                
-
+                        {/* FOr Destop */}
                 <div className="hidden md:flex items-center mx-2">
-                    <div className="flex flex-col cursor-pointer mx-2">
+                    <Link to="/login" className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px] md:text-[14px]">Hello, sign in</span>
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Account and Lists</span>
-                    </div>
+                    </Link>
                     <div className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px] md:text-[14px]">Return</span>
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">& Order</span>
                     </div>
-                    <Link to="/cart" className="flex items-center cursor-pointer mx-2">
+                    <Link to="/maincart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Cart</span>
                     </Link>
                 </div>
 
+                    {/* For mobiler */}
                 <div className="md:hidden flex items-center">
-                    <div className="flex flex-col cursor-pointer mx-2">
+                    <Link to="/login" className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px]">Hello, sign in</span>
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Account and Lists</span>
-                    </div>
-                    <Link to="/cart" className="flex items-center cursor-pointer mx-2">
+                    </Link>
+                    <Link to="/maincart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
                     </Link>
