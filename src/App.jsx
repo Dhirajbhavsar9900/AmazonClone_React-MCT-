@@ -10,12 +10,12 @@ import MainfilterProductpage from "./Components/FilterProducts/MainfilterProduct
 import Login from './pages/Registration/Login'
 import ForgerPassOTP from './pages/Registration/ForgerPassOTP'
 import MainCart from './pages/Cart/MainCart'
-import SignupTosti from './pages/Registration/Tostify/SignupTosti'
+
+
 function App() {
   return (
     <>
     <BrowserRouter>
-    <SignupTosti />
       <Routes>
         <Route path="/" element={<HeroSection/>} />
         <Route path="/cart" element={<Cart/>} />

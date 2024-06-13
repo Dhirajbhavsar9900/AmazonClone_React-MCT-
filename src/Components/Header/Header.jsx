@@ -8,13 +8,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import Image from './../../assets/images/Amazon/Amzon.png';
 import { useMediaQuery } from '@mui/material';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate
 import Headerbottom from './Headerbottom';
 
+
 const Header = () => {
-    
-    
     const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
     const digitalContent = ['Amazon MiniTv_free Entertainment', 'Echo & Alexa', 'Fire Tv'];
     const shopCategories = ['Mobiles', 'Laptops', 'Home Appliances'];
@@ -23,14 +21,25 @@ const Header = () => {
 
     const isDesktop = useMediaQuery('(min-width:600px)');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();  // Create navigate function
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    
+    const handleLogout = () => {
+        // Clear any user session data or tokens if necessary
+        console.log('User logged out');
+        toast.success('You have been logged out successfully!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000, // Automatically close the toast after 2 seconds
+        });
+        navigate('/login', { replace: true });  // Navigate to login page after logging out and replace current entry
+    };
     return (
         <div className={`header-wrapper ${isMenuOpen ? 'overlay-open' : ''}`}>
-            <nav className="bg-[#131921] flex flex-wrap items-center p-2 ">
+            <nav className="bg-[#131921] flex flex-wrap items-center p-2">
                 <div className="flex items-center flex-grow mx-2">
                     <button
                         onClick={toggleMenu}
@@ -45,7 +54,7 @@ const Header = () => {
                             </>
                         )}
                     </button>
-                    <Link to="/ " className="flex items-center cursor-pointer mx-2">
+                    <Link to="/" className="flex items-center cursor-pointer mx-2">
                         <img className="w-[80px] sm:w-[100px] md:w-[110px]" src={Logo} alt="Amazon Logo" />
                         <span className="text-white text-center hidden md:inline">.in</span>
                     </Link>
@@ -75,8 +84,7 @@ const Header = () => {
                     </form>
                 </div>
 
-               
-                        {/* FOr Destop */}
+                {/* For Desktop */}
                 <div className="hidden md:flex items-center mx-2">
                     <Link to="/login" className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px] md:text-[14px]">Hello, sign in</span>
@@ -84,15 +92,18 @@ const Header = () => {
                     </Link>
                     <div className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px] md:text-[14px]">Return</span>
-                        <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">& Order</span>
+                        <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">& Orders</span>
                     </div>
                     <Link to="/maincart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Cart</span>
                     </Link>
+                    <button onClick={handleLogout} className="text-white mx-2">
+                        Logout
+                    </button>
                 </div>
 
-                    {/* For mobiler */}
+                {/* For Mobile */}
                 <div className="md:hidden flex items-center">
                     <Link to="/login" className="flex flex-col cursor-pointer mx-2">
                         <span className="text-gray-200 font-semibold text-[10px] sm:text-[12px]">Hello, sign in</span>
@@ -102,6 +113,9 @@ const Header = () => {
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
                         <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
                     </Link>
+                    <button onClick={handleLogout} className="text-white mx-2">
+                        Logout
+                    </button>
                 </div>
             </nav>
 
@@ -117,7 +131,7 @@ const Header = () => {
                                 </>
                             )}
                         </button>
-                        {/* compoenent */}
+                        {/* Component */}
                         <Headerbottom />
                     </div>
                 )}
@@ -133,21 +147,25 @@ const Header = () => {
                     <MenuSection title="Digital Content and Devices" items={digitalContent} />
                     <MenuSection title="Shop by Category" items={shopCategories} />
                     <MenuSection title="Programs and Features" items={programsAndFeatures} />
-                    <MenuSection title="Helps & Settings" items={helpAndSettings} />
+                    <MenuSection title="Helps & Settings" items={[...helpAndSettings, 'Logout']} onLogout={handleLogout} />
                 </div>
             </section>
         </div>
     );
 };
 
-const MenuSection = ({ title, items }) => (
+const MenuSection = ({ title, items, onLogout }) => (
     <div>
         <div className="px-4 py-2 mt-3 flex font-sans">
             <h1 className="text-lg text-white font-bold">{title}</h1>
         </div>
         {items.map((text, index) => (
             <div key={index} className="px-4 py-2">
-                <span className="text-sm text-white cursor-pointer">{text}</span>
+                {text === 'Logout' ? (
+                    <span className="text-sm text-white cursor-pointer" onClick={onLogout}>{text}</span>
+                ) : (
+                    <span className="text-sm text-white cursor-pointer">{text}</span>
+                )}
             </div>
         ))}
     </div>
@@ -155,7 +173,8 @@ const MenuSection = ({ title, items }) => (
 
 MenuSection.propTypes = {
     title: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(PropTypes.string).isRequired
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onLogout: PropTypes.func
 };
 
 export default Header;
