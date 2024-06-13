@@ -1,5 +1,4 @@
-import EndFooterList from './../../constant/EndFooterList'; // Adjust the path if necessary
-
+import EndFooterList from './../../constant/EndFooterList'; 
 const FooterEnd = () => {
     return (
         <section className="bg-[#131A22] py-6 md:py-8">

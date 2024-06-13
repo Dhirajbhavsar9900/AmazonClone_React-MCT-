@@ -1,4 +1,4 @@
-import FooterList from './../../constant/FooterList'; // Adjust the path if necessary
+import FooterList from './../../constant/FooterList'; 
 import AmazonImg from './../../assets/images/footr Img/logo-09f4bace.png'
 import India from './../../assets/images/footr Img/download.png'
 
