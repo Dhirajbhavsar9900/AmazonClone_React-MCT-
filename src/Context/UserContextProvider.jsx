@@ -11,7 +11,7 @@ const UserContextProvider = ({ children }) => {
   };
 
   const cartItemCount = cart.length;
-  console.log(cartItemCount);
+  // console.log(cartItemCount);
 
   return (
     <UserContext.Provider value={{ user, setUser, cart, addToCart, cartItemCount }}>

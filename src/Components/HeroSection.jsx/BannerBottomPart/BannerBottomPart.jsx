@@ -13,12 +13,7 @@ const BannerBottomPart = () => {
                     <Link to="/filter"><p className="navigateButtonLinks text-base py-2">Shop now</p></Link>
                 </div>
             ))}
-            <div className="bg-white p-4 h-max shadow-2xl">
-                <h1 className="text-xl font-medium py-2">Sign in for your best experience</h1>
-                <button className="bg-yellow-400 shadow-sm text-black font-semibold px-4 py-2 text-sm rounded-lg w-full mt-auto">
-                    Sign in Securely
-                </button>
-            </div>
+            
         </section>
     );
 };

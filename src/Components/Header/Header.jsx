@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './Header.css';
 import Logo from './../../assets/images/amazon-png-logo-vector-6701.png';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -10,6 +10,8 @@ import { useMediaQuery } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate
 import Headerbottom from './Headerbottom';
+// import Cart from '../../pages/Cart/Cart';
+import UserContext from '../../Context/UserContext';
 
 const Header = () => {
     const trending = ['Best Sellers', 'New Release', 'Movers and Shakers'];
@@ -25,7 +27,9 @@ const Header = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const {cart}= useContext(UserContext)
 
+    console.log(cart);
     const handleLogout = () => {
         // Clear any user session data or tokens if necessary
         console.log('User logged out');
@@ -90,9 +94,9 @@ const Header = () => {
                     </div>
                     <Link to="/maincart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
-                        <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Cart</span>
+                        <span className="text-white font-semibold text-[13px] sm:text-[15px] md:text-[17px]">Cart <span className=' bg-orange-400 p-1.5 rounded-full' >{cart.length}</span></span>
                     </Link>
-                    <button onClick={handleLogout} className="text-white mx-2">
+                    <button onClick={handleLogout} className="text-white mx-2 font-bold">
                         Logout
                     </button>
                 </div>
@@ -105,9 +109,9 @@ const Header = () => {
                     </Link>
                     <Link to="/maincart" className="flex items-center cursor-pointer mx-2">
                         <ShoppingCartOutlinedIcon style={{ fill: 'white', width: '30px', height: '35px' }} />
-                        <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart</span>
+                        <span className="text-white font-semibold text-[13px] sm:text-[15px]">Cart<span className=' bg-orange-400 p-1.5 rounded-full ml-1.5' >{cart.length}</span></span>
                     </Link>
-                    <button onClick={handleLogout} className="text-white mx-2">
+                    <button onClick={handleLogout} className="text-white mx-2 font-bold">
                         Logout
                     </button>
                 </div>
