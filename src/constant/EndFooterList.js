@@ -36,45 +36,45 @@ const EndFooterList = [
             "Amazon Gift Cards"
         ]
     },
-    {
-        title:"Help",
-        items:[
-            "Help",
-            "Selling on Amazon",
-            "Selling on Amazon Business",
-        ]
-    },
-    {
-        title:"Jobs",
-        items:[
-            "Jobs",
-            "Employment",
-        ]
-    },
-    {
-        title:"Sell",
-        items:[
-            "Sell",
-            "Selling on Amazon",
-            "Selling on Amazon Business",
-        ]
-    },
-    {
-        title:"Prime Now",
-        items:[
-            "2-Hour Delivery on",
-            "Everyday Items"
-        ]
-    },
-    {
-        title:"Amazon Prime Music",
-        items:[
-            "100 million songs,",
-            "ad-free Over 15",
-            "million podcast ",
-            "episodes"
-        ]
-    }
+    // {
+    //     title:"Help",
+    //     items:[
+    //         "Help",
+    //         "Selling on Amazon",
+    //         "Selling on Amazon Business",
+    //     ]
+    // },
+    // {
+    //     title:"Jobs",
+    //     items:[
+    //         "Jobs",
+    //         "Employment",
+    //     ]
+    // },
+    // {
+    //     title:"Sell",
+    //     items:[
+    //         "Sell",
+    //         "Selling on Amazon",
+    //         "Selling on Amazon Business",
+    //     ]
+    // },
+    // {
+    //     title:"Prime Now",
+    //     items:[
+    //         "2-Hour Delivery on",
+    //         "Everyday Items"
+    //     ]
+    // },
+    // {
+    //     title:"Amazon Prime Music",
+    //     items:[
+    //         "100 million songs,",
+    //         "ad-free Over 15",
+    //         "million podcast ",
+    //         "episodes"
+    //     ]
+    // }
 
 ]
 

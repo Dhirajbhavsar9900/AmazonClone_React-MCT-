@@ -31,9 +31,9 @@ const Header = () => {
 
     console.log(cart);
     const handleLogout = () => {
-        // Clear any user session data or tokens if necessary
+      
         console.log('User logged out');
-        navigate('/login', { replace: true });  // Navigate to login page after logging out and replace current entry
+        navigate('/login', { replace: true });  
     };
     return (
         <div className={`header-wrapper ${isMenuOpen ? 'overlay-open' : ''}`}>
